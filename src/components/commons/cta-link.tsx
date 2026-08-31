@@ -16,7 +16,7 @@ export function CtaLink({
 }: CtaLinkProps) {
 	return (
 		<Link
-			href="https://wa.me/5543984483502?text=Ol%C3%A1%2C%20quero%20ter%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20Prime%20Jur%C3%ADdico."
+			href="https://wa.me/5543984483502?text=Ol%C3%A1%2C%20quero%20ter%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20ecossistema%20que%20automatiza%20o%20fechamento%20de%20contratos."
 			target="_blank"
 			aria-label={label}
 			className={cn(

@@ -15,12 +15,14 @@ export function Presentation() {
 			title: 'CRM Personalizado',
 			description:
 				'Tenha controle total dos seus leads, processos comerciais e oportunidades em um só lugar.',
+			featured: true,
 		},
 		{
 			icon: MessageCircle,
 			title: 'WhatsApp Automatizado',
 			description:
 				'Automatize atendimentos, follow-ups e respostas para não perder nenhuma oportunidade.',
+			featured: true,
 		},
 		{
 			icon: FileSignature,
@@ -49,13 +51,20 @@ export function Presentation() {
 	]
 
 	return (
-		<section className='flex flex-col gap-4 px-8 pb-20 pt-14 items-center'>
-			<div className='flex flex-col items-center gap-4 mb-10'>
+		<section
+			id='como-funciona'
+			aria-labelledby='presentation-title'
+			className='flex w-full flex-col items-center px-[var(--page-gutter)] py-[var(--section-space)]'
+		>
+			<div className='mb-12 flex flex-col items-center gap-4 sm:mb-14'>
 				<span className='font-mono text-xs uppercase tracking-[0.2em] text-primary'>
 					Tudo que seu escritório precisa
 				</span>
 
-				<h3 className='text-foreground font-semibold text-4xl text-center max-w-3xl'>
+				<h3
+					id='presentation-title'
+					className='max-w-3xl text-balance text-center text-4xl font-semibold tracking-[-0.025em] text-foreground sm:text-5xl'
+				>
 					Transformamos tecnologia em{' '}
 					<strong className='text-primary font-ibm italic'>
 						resultados reais
@@ -63,21 +72,26 @@ export function Presentation() {
 					para o seu escritório
 				</h3>
 
-				<p className='text-muted-foreground text-center max-w-2xl text-lg'>
+				<p className='max-w-2xl text-pretty text-center text-lg leading-relaxed text-muted-foreground'>
 					Da aquisição de novos clientes até o fechamento de contratos,
 					criamos uma operação mais eficiente para você crescer.
 				</p>
 			</div>
 
-			<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl'>
+			<div className='grid w-full max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6'>
 				{solutions.map((solution, index) => (
-					<PresentationCard
-						key={index}
-						icon={solution.icon}
-						title={solution.title}
-						description={solution.description}
-						index={index}
-					/>
+					<div
+						key={solution.title}
+						className={solution.featured ? 'lg:col-span-6' : 'lg:col-span-3'}
+					>
+						<PresentationCard
+							icon={solution.icon}
+							title={solution.title}
+							description={solution.description}
+							index={index}
+							featured={solution.featured}
+						/>
+					</div>
 				))}
 			</div>
 		</section>

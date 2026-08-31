@@ -1,5 +1,5 @@
 import { TypewritterEffect } from "../ui/animated/typewriter-effect"
-import { Button } from "../ui/button"
+import { CtaLink } from "../commons/cta-link"
 
 export function Hero() {
 
@@ -12,29 +12,25 @@ export function Hero() {
     ]
 
     return (
-        <section className="relative flex min-h-[650px] flex-col items-center justify-center overflow-hidden pt-16 pb-6">
-            <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_35%,rgba(212,168,67,0.22),transparent_50%)]" />
-            <div className="absolute -left-40 top-20 -z-10 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
-            <div className="absolute -right-40 bottom-0 -z-10 h-[450px] w-[450px] rounded-full bg-primary/10 blur-[120px]" />
+        <section
+            id="inicio"
+            aria-labelledby="hero-title"
+            className="relative flex min-h-[clamp(38rem,75vh,46rem)] w-full flex-col items-center justify-center overflow-hidden px-[var(--page-gutter)] py-[var(--section-space-compact)]"
+        >
+            <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_32%,rgba(212,168,67,0.18),transparent_48%)]" />
+            <div className="absolute -left-40 top-16 -z-10 h-[30rem] w-[30rem] rounded-full bg-primary/8 blur-[120px]" />
+            <div className="absolute -right-40 bottom-4 -z-10 h-[28rem] w-[28rem] rounded-full bg-primary/8 blur-[120px]" />
 
-            <div
-                className="absolute inset-0 -z-10 opacity-[0.045]"
-                style={{
-                    backgroundImage: `
-                linear-gradient(to right, currentColor 1px, transparent 1px),
-                linear-gradient(to bottom, currentColor 1px, transparent 1px)
-            `,
-                    backgroundSize: "80px 80px",
-                }}
-            />
-
-            <div className="flex max-w-5xl flex-col items-center gap-8 px-6">
+            <div className="flex w-full max-w-5xl flex-col items-center gap-7 sm:gap-8">
 
                 <span className="rounded-full border border-primary/30 bg-primary/5 px-4 py-2 font-mono text-xs uppercase tracking-widest text-primary">
                     Marketing + Tecnologia para Advocacia
                 </span>
 
-                <h2 className="max-w-5xl text-center text-5xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+                <h2
+                    id="hero-title"
+                    className="max-w-5xl text-balance text-center text-[clamp(2.5rem,7vw,4.5rem)] font-bold leading-[1.04] tracking-[-0.035em] text-foreground"
+                >
                     Advogado,{" "}
                     <strong className="font-ibm italic text-primary">
                         automatize seus fechamentos
@@ -42,25 +38,17 @@ export function Hero() {
                     e escale seu escritório de verdade
                 </h2>
 
-                <div className="text-center text-lg leading-relaxed text-foreground sm:text-xl">
+                <div className="max-w-3xl text-pretty text-center text-lg leading-relaxed text-foreground/90 sm:text-xl">
                     <p>
                         A Prime Jurídico te faz crescer
                     </p>
 
-                    <div className="mt-2 text-foreground">
+                    <div className="mt-2 min-h-[3.5rem] text-foreground sm:min-h-8">
                         <TypewritterEffect texts={phrases} />
                     </div>
                 </div>
 
-                <Button className="group mt-2 h-12 px-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/20">
-                    <span className="font-mono text-sm">
-                        QUERO GARANTIR MAIS CLIENTES
-                    </span>
-
-                    <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                        →
-                    </span>
-                </Button>
+                <CtaLink className="mt-1 h-12 px-6" />
 
             </div>
         </section>

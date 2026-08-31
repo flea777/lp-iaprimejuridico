@@ -103,7 +103,7 @@ export function Footer() {
 
 							{/* WhatsApp */}
 							<a
-								href="https://wa.me/5500000000000"
+								href="https://wa.me/5543984483502?text=Ol%C3%A1%2C%20quero%20ter%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20Prime%20Jur%C3%ADdico."
 								target="_blank"
 								rel="noopener noreferrer"
 								className="group -mx-2 flex min-h-12 items-center gap-4 rounded-xl px-2 transition-colors duration-200 hover:bg-white/[0.035]"
@@ -121,7 +121,7 @@ export function Footer() {
 									</p>
 
 									<p className="text-sm font-medium text-foreground">
-										(00) 00000-0000
+										(43) 98448-3502
 									</p>
 								</div>
 
@@ -149,7 +149,7 @@ export function Footer() {
 									</p>
 
 									<p className="text-sm font-medium text-foreground">
-										contato@primejuridico.com.br
+										primemktprev@gmail.com
 									</p>
 								</div>
 
@@ -161,7 +161,7 @@ export function Footer() {
 
 							{/* Instagram */}
 							<a
-								href="https://instagram.com/primejuridico"
+								href="https://instagram.com/gustavo_queiroz__adv"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="group -mx-2 flex min-h-12 items-center gap-4 rounded-xl px-2 transition-colors duration-200 hover:bg-white/[0.035]"
@@ -178,7 +178,7 @@ export function Footer() {
 									</p>
 
 									<p className="text-sm font-medium text-foreground">
-										@primejuridico
+										@gustavo_queiroz__adv
 									</p>
 								</div>
 

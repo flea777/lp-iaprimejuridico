@@ -1,29 +1,37 @@
+"use client"
+
+import { useRef, useState } from "react"
 import Image from "next/image"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Pause, Play, Volume2, VolumeX } from "lucide-react"
 
 import { CtaLink } from "@/components/commons/cta-link"
 
 export function Results() {
 	const results = [
 		{
-			image: "/result-1.jpeg",
+			type: "video" as const,
+			video: "/result-1.mp4",
+			poster: "/result-1-poster.jpg",
 			label: "Resultado de campanha semanal",
 			width: 824,
 			height: 1600,
 		},
 		{
+			type: "image" as const,
 			image: "/result-4.jpg",
 			label: "Resultado de campanha semanal",
 			width: 929,
 			height: 1600,
 		},
 		{
+			type: "image" as const,
 			image: "/result-3.jpeg",
 			label: "Resultado de campanha semanal",
 			width: 924,
 			height: 1600,
 		},
 		{
+			type: "image" as const,
 			image: "/result-2.jpeg",
 			label: "Resultado de campanha semanal",
 			width: 824,
@@ -70,20 +78,30 @@ export function Results() {
 
 				{/* WhatsApp screenshots */}
 				<div className="grid w-full grid-cols-2 items-start justify-items-center gap-x-4 gap-y-8 sm:gap-7 lg:grid-cols-4 lg:gap-8">
-					{results.map((result) => (
+					{results.map((result, index) => (
 						<div
-							key={result.image}
+							key={result.type === "video" ? result.video : result.image}
 							className="group flex flex-col items-center gap-4"
 						>
 							<div className="relative overflow-hidden rounded-2xl bg-card p-1 ring-1 ring-white/10 transition-[transform,box-shadow] duration-500 ease-out group-hover:-translate-y-1.5 group-hover:shadow-[0_8px_8px_-8px_color-mix(in_oklch,var(--primary)_45%,transparent)] group-hover:ring-primary/35">
-								<Image
-									src={result.image}
-									width={result.width}
-									height={result.height}
-									alt={result.label}
-									sizes="(max-width: 639px) 44vw, (max-width: 1023px) 22vw, 240px"
-									className="h-auto w-full max-w-[240px] rounded-xl object-contain transition-transform duration-500 group-hover:scale-[1.015]"
-								/>
+								{result.type === "video" ? (
+									<VideoResult
+										src={result.video}
+										poster={result.poster}
+										width={result.width}
+										height={result.height}
+										priority={index === 0}
+									/>
+								) : (
+									<Image
+										src={result.image}
+										width={result.width}
+										height={result.height}
+										alt={result.label}
+										sizes="(max-width: 639px) 44vw, (max-width: 1023px) 22vw, 240px"
+										className="h-auto w-full max-w-[240px] rounded-xl object-contain transition-transform duration-500 group-hover:scale-[1.015]"
+									/>
+								)}
 							</div>
 
 							<div className="flex items-center gap-2 text-center">
@@ -111,5 +129,89 @@ export function Results() {
 
 			</div>
 		</section>
+	)
+}
+
+function VideoResult({
+	src,
+	poster,
+	width,
+	height,
+	priority,
+}: {
+	src: string
+	poster: string
+	width: number
+	height: number
+	priority: boolean
+}) {
+	const videoRef = useRef<HTMLVideoElement>(null)
+	const [isPlaying, setIsPlaying] = useState(true)
+	const [isMuted, setIsMuted] = useState(true)
+
+	function togglePlay() {
+		const video = videoRef.current
+		if (!video) return
+
+		if (video.paused) {
+			video.play()
+			setIsPlaying(true)
+		} else {
+			video.pause()
+			setIsPlaying(false)
+		}
+	}
+
+	function toggleMute() {
+		const video = videoRef.current
+		if (!video) return
+
+		video.muted = !video.muted
+		setIsMuted(video.muted)
+	}
+
+	return (
+		<div className="relative">
+			<video
+				ref={videoRef}
+				src={src}
+				poster={poster}
+				autoPlay
+				loop
+				muted
+				playsInline
+				preload={priority ? "auto" : "metadata"}
+				className="h-auto w-full max-w-[240px] rounded-xl object-contain transition-transform duration-500 group-hover:scale-[1.015]"
+				style={{ aspectRatio: `${width} / ${height}` }}
+			/>
+
+			<div className="absolute bottom-2 right-2 flex items-center gap-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100 focus-within:opacity-100">
+				<button
+					type="button"
+					onClick={toggleMute}
+					aria-label={isMuted ? "Ativar som" : "Desativar som"}
+					className="flex h-6 w-6 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm transition-colors hover:bg-black/60 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60"
+				>
+					{isMuted ? (
+						<VolumeX size={11} />
+					) : (
+						<Volume2 size={11} />
+					)}
+				</button>
+
+				<button
+					type="button"
+					onClick={togglePlay}
+					aria-label={isPlaying ? "Pausar vídeo" : "Reproduzir vídeo"}
+					className="flex h-6 w-6 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm transition-colors hover:bg-black/60 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60"
+				>
+					{isPlaying ? (
+						<Pause size={11} fill="currentColor" />
+					) : (
+						<Play size={11} fill="currentColor" className="ml-[1px]" />
+					)}
+				</button>
+			</div>
+		</div>
 	)
 }

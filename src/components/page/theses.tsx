@@ -35,7 +35,11 @@ export function Theses() {
 	]
 
 	return (
-		<section className='relative overflow-hidden px-8 py-24'>
+		<section
+			id='teses'
+			aria-labelledby='theses-title'
+			className='relative w-full overflow-hidden px-[var(--page-gutter)] py-[var(--section-space)]'
+		>
 			<div className='mx-auto flex max-w-6xl flex-col gap-14'>
 
 				{/* Heading */}
@@ -45,7 +49,10 @@ export function Theses() {
 							Teses com potencial de demanda
 						</span>
 
-						<h3 className='mt-4 max-w-2xl text-4xl font-semibold leading-tight text-foreground sm:text-5xl'>
+						<h3
+							id='theses-title'
+							className='mt-4 max-w-2xl text-balance text-4xl font-semibold leading-tight tracking-[-0.025em] text-foreground sm:text-5xl'
+						>
 							Encontre quem já está{' '}
 							<strong className='font-ibm italic text-primary'>
 								buscando por uma solução.
@@ -53,7 +60,7 @@ export function Theses() {
 						</h3>
 					</div>
 
-					<p className='max-w-xl text-lg leading-relaxed text-muted-foreground lg:justify-self-end'>
+					<p className='max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground lg:justify-self-end'>
 						Criamos campanhas direcionadas para diferentes teses
 						jurídicas, colocando seu escritório em contato com
 						pessoas que precisam de orientação especializada.
@@ -68,7 +75,7 @@ export function Theses() {
 						return (
 							<div
 								key={thesis.title}
-								className='group grid gap-6 py-8 transition-all duration-300 lg:grid-cols-[100px_1fr_2fr] lg:items-center'
+								className='group grid gap-5 py-7 transition-colors duration-300 sm:gap-6 sm:py-8 lg:grid-cols-[6.25rem_1fr_2fr] lg:items-center'
 							>
 								{/* Number */}
 								<span className='font-ibm text-5xl font-semibold text-primary/30 transition-colors duration-300 group-hover:text-primary/70'>
@@ -99,7 +106,7 @@ export function Theses() {
 				</div>
 
 				{/* Other areas */}
-				<div className='flex flex-col gap-4 rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8'>
+				<div className='flex flex-col gap-5 rounded-2xl bg-primary/5 p-6 ring-1 ring-primary/20 transition-colors duration-300 hover:bg-primary/[0.075] sm:flex-row sm:items-center sm:justify-between sm:p-8'>
 					<div className='flex items-start gap-4'>
 						<div className='flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10'>
 							<Scale

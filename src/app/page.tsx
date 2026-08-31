@@ -7,12 +7,14 @@ import { Theses } from "@/components/page/theses";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-2 justify-center items-center pt-4">
+    <div className="min-h-screen overflow-x-clip pt-4 sm:pt-6">
       <Header />
-      <Hero />
-      <Theses />
-      <Presentation />
-      <Results />
+      <main>
+        <Hero />
+        <Theses />
+        <Presentation />
+        <Results />
+      </main>
       <Footer />
     </div>
   )

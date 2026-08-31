@@ -1,3 +1,4 @@
+import Image from "next/image"
 import {
 	ArrowUpRight,
 	Mail,
@@ -6,26 +7,29 @@ import {
 
 export function Footer() {
 	return (
-		<footer className="relative mt-20 overflow-hidden border-t border-white/10 bg-card/50">
+		<footer
+			id="contato"
+			className="relative overflow-hidden border-t border-white/10 bg-card/50"
+		>
 
 			{/* Glow */}
 			<div className="absolute left-1/2 top-0 -z-10 h-[500px] w-[900px] -translate-x-1/2 bg-primary/5 blur-3xl" />
 
-			<div className="w-full px-8 sm:px-12 lg:px-16">
+			<div className="mx-auto w-full max-w-[var(--content-width)] px-[var(--page-gutter)]">
 
 				{/* Main footer */}
-				<div className="grid gap-16 py-20 lg:grid-cols-[2fr_1fr_1fr]">
+				<div className="grid gap-12 py-[var(--section-space-compact)] md:grid-cols-2 lg:grid-cols-[2fr_1fr_1.25fr] lg:gap-16">
 
 					{/* Brand */}
 					<div className="flex flex-col gap-6">
 
 						<div className="flex items-center gap-3">
-							<img
+							<Image
 								src="/logo.png"
 								width={60}
 								height={60}
 								alt="Prime Jurídico"
-								className="object-contain"
+								className="h-[60px] w-[60px] object-contain"
 							/>
 
 							<h2 className="font-ibm text-3xl leading-[0.85] text-foreground">
@@ -37,7 +41,7 @@ export function Footer() {
 							</h2>
 						</div>
 
-						<p className="max-w-lg text-lg leading-relaxed text-muted-foreground">
+						<p className="max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">
 							Tecnologia, tráfego e automação para transformar
 							a operação do seu escritório e gerar novas
 							oportunidades.
@@ -56,31 +60,31 @@ export function Footer() {
 							Navegação
 						</span>
 
-						<nav className="flex flex-col gap-3">
+						<nav aria-label="Navegação do rodapé" className="flex flex-col gap-1">
 							<a
 								href="#inicio"
-								className="w-fit text-sm text-muted-foreground transition-colors hover:text-foreground"
+								className="inline-flex min-h-11 w-fit items-center rounded-md text-sm text-muted-foreground transition-[color,transform] duration-200 ease-out hover:translate-x-1 hover:text-foreground focus-visible:text-foreground"
 							>
 								Início
 							</a>
 
 							<a
 								href="#teses"
-								className="w-fit text-sm text-muted-foreground transition-colors hover:text-foreground"
+								className="inline-flex min-h-11 w-fit items-center rounded-md text-sm text-muted-foreground transition-[color,transform] duration-200 ease-out hover:translate-x-1 hover:text-foreground focus-visible:text-foreground"
 							>
 								Teses
 							</a>
 
 							<a
 								href="#como-funciona"
-								className="w-fit text-sm text-muted-foreground transition-colors hover:text-foreground"
+								className="inline-flex min-h-11 w-fit items-center rounded-md text-sm text-muted-foreground transition-[color,transform] duration-200 ease-out hover:translate-x-1 hover:text-foreground focus-visible:text-foreground"
 							>
 								Como funciona
 							</a>
 
 							<a
 								href="#resultados"
-								className="w-fit text-sm text-muted-foreground transition-colors hover:text-foreground"
+								className="inline-flex min-h-11 w-fit items-center rounded-md text-sm text-muted-foreground transition-[color,transform] duration-200 ease-out hover:translate-x-1 hover:text-foreground focus-visible:text-foreground"
 							>
 								Resultados
 							</a>
@@ -102,7 +106,7 @@ export function Footer() {
 								href="https://wa.me/5500000000000"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="group flex items-center gap-4 transition-colors"
+								className="group -mx-2 flex min-h-12 items-center gap-4 rounded-xl px-2 transition-colors duration-200 hover:bg-white/[0.035]"
 							>
 								<div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-background/40">
 									<MessageCircle
@@ -130,7 +134,7 @@ export function Footer() {
 							{/* E-mail */}
 							<a
 								href="mailto:contato@primejuridico.com.br"
-								className="group flex items-center gap-4 transition-colors"
+								className="group -mx-2 flex min-h-12 items-center gap-4 rounded-xl px-2 transition-colors duration-200 hover:bg-white/[0.035]"
 							>
 								<div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-background/40">
 									<Mail
@@ -160,7 +164,7 @@ export function Footer() {
 								href="https://instagram.com/primejuridico"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="group flex items-center gap-4 transition-colors"
+								className="group -mx-2 flex min-h-12 items-center gap-4 rounded-xl px-2 transition-colors duration-200 hover:bg-white/[0.035]"
 							>
 								<div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-background/40">
 									<span className="text-xs font-bold text-primary">
